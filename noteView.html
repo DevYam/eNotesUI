@@ -33,7 +33,7 @@
                     "    <div class=\"card-body\">\n" +
                     "        <h5 class=\"card-title\">"+responseJson[x].title+"</h5>\n" +"<hr>"+
                     "        <p class=\"card-text\">"+responseJson[x].content+"</p>\n" +
-                    "      <a href=\"javascript:void(0);\" onclick=\"del(\'"+delLink+"\',\'"+id+"\')\" class=\"card-link\" id=\"link\""+id+" style='color: red'>Delete</a>\n" +
+                    "      <a href=\"javascript:void(0);\" onclick=\"del(\'"+delLink+"\',\'"+id+"\')\" class=\"card-link\" id=\"link"+id+"\" style='color: red'>Delete</a>\n" +
                     "<!--        <a href=\"#\" class=\"card-link\">Another link</a>-->\n" +
                     "    </div>"
                 document.getElementById("demo").innerHTML += htmlText;
@@ -45,6 +45,8 @@
     xhr.send(data);
 
    function del(url, id){
+       var linkid = "link"+id;
+       document.getElementById(linkid).innerHTML="Deleting..."
        $.ajax({
            url: url,
            type: 'DELETE',
